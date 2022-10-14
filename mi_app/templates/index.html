@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index_style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor0">
+        <div class="formulario1">
+            {% with messages = get_flashed_messages() %} 
+            {% if messages %}
+            <ul class="mb-3 ">
+              {% for message in messages %}
+              <li class="list-group-item">
+                <div class="alert alert-warning"">{{message}}</div>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %} 
+            {% endwith %}
+            <h1 class="text-center text-warning ">Registrarse</h1>
+            <form action='/crear_usuario' method='post'>
+                <div class="mb-3 ">
+                    <label for="nombre" class="form-label text-white">Nombre</label>
+                    <input type="nombre" class="form-control" id="exampleFormControlInput1" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="form-label text-white">Apellido</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="correo" class="form-label text-white">Correo</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="correo">
+                </div>
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label text-white">Contraseña</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="contraseña">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-warning" >Registrarse</button>
+                </div>
+            </form>
+        </div>
+        <div class="formulario2">
+            {% with messages = get_flashed_messages() %} 
+            {% if messages %}
+            <ul>
+              {% for message in messages %}
+              <li class="list-group-item">
+                <div class="alert alert-success">{{message}}</div>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %} 
+          {% endwith %}
+            <h1 class="text-center text-success ">Iniciar Sesion</h1>
+            <form action='/iniciar_sesion' method='post'>
+                <div class="mb-3 ">
+                    <label for="correo" class="form-label text-white">Correo</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="correo">
+                </div>
+                <div class="mb-3"> 
+                    <label for="contraseña" class="form-label text-white">Contraseña</label>
+                    <input type="nombre" class="form-control" id="exampleFormControlInput1" name="contraseña">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success" >Entrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
